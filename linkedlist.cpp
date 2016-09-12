@@ -42,6 +42,11 @@ int main(int argc, char const *argv[]) {
     iterator->data=2*i;
     iterator->next=NULL;
   }
+  //Araya eleman eklemek
+  node *temp=(node *)malloc(sizeof(node));
+  temp->next=iterator->next;
+  iterator->next=temp;
+  temp->data=444;
   Display(root);
   return 0;
 }
