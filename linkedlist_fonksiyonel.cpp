@@ -12,7 +12,6 @@ struct Node{
 
 typedef Node node;
 
-
 //fonksiyon prototipleri
 void Display(node *toor);
 void AddLast(node *toor, int value);
@@ -27,7 +26,18 @@ int main(int argc, char const *argv[]) {
   for (int i = 1; i < 9; i++) {
     AddLast(root,i);
   }
-  Display(root);
+   //
+   node *iterator=root;
+   for (int i = 0; i < 3; i++) {
+     iterator=iterator->next;
+   }
+    //Araya eleman eklemek
+   node *temp=(node *)malloc(sizeof(node));
+   temp->next=iterator->next;
+   iterator->next=temp;
+   temp->data=444;
+
+   Display(root);
   return 0;
 }
 //Display
